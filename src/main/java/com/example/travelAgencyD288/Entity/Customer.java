@@ -1,18 +1,42 @@
 package com.example.travelAgencyD288.Entity;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 import java.util.Set;
 
+@Entity
+@Table(name="CUSTOMERS")
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Customer_ID")
     private Long id;
+    @Column(name="First_Name", length = 255)
     private String firstName;
+    @Column(name = "Last_Name", length = 255)
     private String lastName;
+
+    @Column(name = "Address", length = 255)
     private String address;
+
+    @Column(name = "Postal_Code", length = 255)
     private String postalCode;
+
+    @Column(name = "Phone", length = 255)
     private String phone;
+
+    @Column(name = "Create_Date")
     private Date createDate;
+
+    @Column(name = "Last_Update")
     private Date lastUpdate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Division_ID")
     private Division division;
+
+    @OneToMany(mappedBy = "Customer", cascade = CascadeType.ALL)
     private Set<Cart> carts;
 
     public Customer() {

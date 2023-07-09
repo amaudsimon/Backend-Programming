@@ -1,16 +1,37 @@
 package com.example.travelAgencyD288.Entity;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Set;
 
+@Entity
+@Table(name="EXCURSIONS")
 public class Excursion extends Customer{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Excursion_ID")
+    private Long id;
+
+    @Column(name= "Excursion_Title")
     private String excursion_title;
+
+    @Column(name = "Excursion_price")
     private BigDecimal excursion_price;
+
+    @Column(name="Image_URL", length=255)
     private String image_URL;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="Vacation_ID")
     private Vacation vacation;
+
+
+    @OneToMany(mappedBy = "Excursion", cascade = CascadeType.ALL)
     private Set<CartItem> cartItems;
 
-    Excursion(){
+    public Excursion(){
 
     }
 
