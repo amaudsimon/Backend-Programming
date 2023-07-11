@@ -6,26 +6,37 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name = "CART_ITEMS")
-public class CartItem extends Customer{
+@Table(name = "cart_items")
+public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Cart_Item_ID")
+    @Column(name="cart_item_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="Vacation_ID")
+    @JoinColumn(name="vacation_id")
     private Vacation vacation;
 
-    @OneToMany(mappedBy = "CartItem", cascade = CascadeType.ALL)
-    private Set<Excursion> excursions;
-
     @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn (name="Cart_ID")
+    @JoinColumn (name="cart_id")
     private Cart cart;
+
+    @Column(name = "create_date")
+    private Date createDate;
+
+    @Column(name = "last_update")
+    private Date lastUpdate;
+
+
+
 
     public CartItem(){
 
+    }
+
+    public CartItem(Vacation vacation, Cart cart) {
+        this.vacation = vacation;
+        this.cart = cart;
     }
 
     public Vacation getVacation() {
@@ -36,13 +47,6 @@ public class CartItem extends Customer{
         this.vacation = vacation;
     }
 
-    public Set<Excursion> getExcursions() {
-        return excursions;
-    }
-
-    public void setExcursions(Set<Excursion> excursions) {
-        this.excursions = excursions;
-    }
 
     public Cart getCart() {
         return cart;
@@ -50,5 +54,14 @@ public class CartItem extends Customer{
 
     public void setCart(Cart cart) {
         this.cart = cart;
+    }
+
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "id=" + id +
+                ", vacation=" + vacation +
+                ", cart=" + cart +
+                '}';
     }
 }

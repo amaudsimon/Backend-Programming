@@ -6,42 +6,53 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name="CUSTOMERS")
+@Table(name="customers")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Customer_ID")
+    @Column(name="customer_id")
     private Long id;
-    @Column(name="First_Name", length = 255)
+    @Column(name="first_name", length = 255)
     private String firstName;
-    @Column(name = "Last_Name", length = 255)
+    @Column(name = "last_name", length = 255)
     private String lastName;
 
-    @Column(name = "Address", length = 255)
+    @Column(name = "address", length = 255)
     private String address;
 
-    @Column(name = "Postal_Code", length = 255)
+    @Column(name = "postal_code", length = 255)
     private String postalCode;
 
-    @Column(name = "Phone", length = 255)
+    @Column(name = "phone", length = 255)
     private String phone;
 
-    @Column(name = "Create_Date")
+    @Column(name = "create_date")
     private Date createDate;
 
-    @Column(name = "Last_Update")
+    @Column(name = "last_update")
     private Date lastUpdate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Division_ID")
+    @JoinColumn(name = "division_iD")
     private Division division;
 
-    @OneToMany(mappedBy = "Customer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> carts;
 
     public Customer() {
     }
 
+    public Customer(String firstName, String lastName, String address, String postalCode, String phone, Date createDate, Date lastUpdate, Division division, Set<Cart> carts) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.phone = phone;
+        this.createDate = createDate;
+        this.lastUpdate = lastUpdate;
+        this.division = division;
+        this.carts = carts;
+    }
 
     public Long getId() {
         return id;
@@ -121,5 +132,21 @@ public class Customer {
 
     public void setCarts(Set<Cart> carts) {
         this.carts = carts;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", phone='" + phone + '\'' +
+                ", createDate=" + createDate +
+                ", lastUpdate=" + lastUpdate +
+                ", division=" + division +
+                ", carts=" + carts +
+                '}';
     }
 }

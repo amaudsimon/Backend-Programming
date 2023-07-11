@@ -7,20 +7,24 @@ import jakarta.persistence.*;
 public class ExcursionCartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ExcursionCartItem_ID")
+    @Column(name = "excursion_cart_item_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "Excursion_ID")
+    @JoinColumn(name = "excursion_id")
     private Excursion excursion;
 
     @ManyToOne
-    @JoinColumn(name = "Cart_Item_ID")
+    @JoinColumn(name = "cart_item_id")
     private CartItem cartItem;
 
     public ExcursionCartItem() {
     }
 
+    public ExcursionCartItem(Excursion excursion, CartItem cartItem) {
+        this.excursion = excursion;
+        this.cartItem = cartItem;
+    }
 
     public Long getId() {
         return id;
@@ -44,5 +48,14 @@ public class ExcursionCartItem {
 
     public void setCartItem(CartItem cartItem) {
         this.cartItem = cartItem;
+    }
+
+    @Override
+    public String toString() {
+        return "ExcursionCartItem{" +
+                "id=" + id +
+                ", excursion=" + excursion +
+                ", cartItem=" + cartItem +
+                '}';
     }
 }

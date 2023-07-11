@@ -4,28 +4,45 @@ import jakarta.persistence.*;
 
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name="VACATIONS")
-public class Vacation extends Customer {
+@Table(name="vacations")
+public class Vacation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Vacation_ID")
+    @Column(name="vacation_id")
     private Long id;
-    @Column(name="Vaction_Title", length = 255)
+    @Column(name="vacation_title", length = 255)
     private String vacation_title;
-    @Column(name="Description", length = 255)
+    @Column(name="description", length = 255)
     private String description;
-    @Column(name="Travel_Fare", length = 10)
+    @Column(name="travel_fare", length = 10)
     private BigDecimal travel_price;
-    @Column(name="Image_URL", length = 255)
+    @Column(name="image_url", length = 255)
     private String image_URL;
-    @OneToMany(mappedBy = "Vacation", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL)
     private Set<Excursion> excursions;
 
     public Vacation(){
 
+    }
+
+    public Vacation(String vacation_title, String description, BigDecimal travel_price, String image_URL, Set<Excursion> excursions) {
+        this.vacation_title = vacation_title;
+        this.description = description;
+        this.travel_price = travel_price;
+        this.image_URL = image_URL;
+        this.excursions = excursions;
+    }
+
+    public Vacation(String firstName, String lastName, String address, String postalCode, String phone, Date createDate, Date lastUpdate, Division division, Set<Cart> carts, String vacation_title, String description, BigDecimal travel_price, String image_URL, Set<Excursion> excursions) {
+        this.vacation_title = vacation_title;
+        this.description = description;
+        this.travel_price = travel_price;
+        this.image_URL = image_URL;
+        this.excursions = excursions;
     }
 
     public String getVacation_title() {
@@ -66,5 +83,17 @@ public class Vacation extends Customer {
 
     public void setExcursions(Set<Excursion> excursions) {
         this.excursions = excursions;
+    }
+
+    @Override
+    public String toString() {
+        return "Vacation{" +
+                "id=" + id +
+                ", vacation_title='" + vacation_title + '\'' +
+                ", description='" + description + '\'' +
+                ", travel_price=" + travel_price +
+                ", image_URL='" + image_URL + '\'' +
+                ", excursions=" + excursions +
+                '}';
     }
 }
