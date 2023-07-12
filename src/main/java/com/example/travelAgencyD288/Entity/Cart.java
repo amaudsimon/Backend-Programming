@@ -1,6 +1,8 @@
 package com.example.travelAgencyD288.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
@@ -23,6 +25,7 @@ public class Cart {
     private StatusType status;
 
     @Column(name = "order_tracking_number", length = 255)
+    @NotNull
     private String orderTrackingNumber;
 
     @Column(name = "create_date")

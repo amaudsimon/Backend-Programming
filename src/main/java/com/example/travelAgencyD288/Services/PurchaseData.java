@@ -26,16 +26,13 @@ public class PurchaseData {
 
     }
 
+    public List<Customer> getCustomerData(Customer customer)
+    {return customerDAO.findById(customer);}
+
     public List<Cart> getCustomerCarts(Customer customer) {
-        return cartDAO.findByCustomer(customer);
-    }
+        return cartDAO.findById(customer);}
 
-    public List<CartItem> getCustomerCartItems(Cart cart) {return cartItemDAO.findByCart(cart);
-    }
+    public List<CartItem> getCustomerCartItems(Cart cart)
+    {return cartItemDAO.findByCart(cart);}
 
-    public void savePurchaseData(Customer customer, Cart cart, Set<CartItem> cartItems) {
-        customerDAO.save(customer);
-        cartDAO.save(cart);
-        cartItemDAO.saveAll(cartItems);
-    }
 }

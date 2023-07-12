@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 @CrossOrigin
 public interface CartDAO extends JpaRepository<Cart, Long> {
-    List<Cart> findByCustomer(Customer customer);
+    List<Cart> findById(Customer customer);
 }

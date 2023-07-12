@@ -32,7 +32,7 @@ public class Excursion{
     private Date lastUpdate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="vacation_title")
+    @JoinColumn(name="vacation_id")
     private Vacation vacation;
 
 
@@ -40,10 +40,13 @@ public class Excursion{
 
     }
 
-    public Excursion(String firstName, String lastName, String address, String postalCode, String phone, Date createDate, Date lastUpdate, Division division, Set<Cart> carts, String excursion_title, BigDecimal excursion_price, String image_URL, Vacation vacation) {
+    public Excursion(Long id, String excursion_title, BigDecimal excursion_price, String image_URL, Date createDate, Date lastUpdate, Vacation vacation) {
+        this.id = id;
         this.excursion_title = excursion_title;
         this.excursion_price = excursion_price;
         this.image_URL = image_URL;
+        this.createDate = createDate;
+        this.lastUpdate = lastUpdate;
         this.vacation = vacation;
     }
 
