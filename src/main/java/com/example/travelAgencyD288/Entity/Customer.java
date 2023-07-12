@@ -1,6 +1,8 @@
 package com.example.travelAgencyD288.Entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.Date;
 import java.util.Set;
@@ -12,18 +14,30 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="customer_id")
     private Long id;
-    @Column(name="first_name", length = 255)
+
+    @Column(name="customer_first_name", length = 255)
+    @NotNull(message = "is required")
+    @Size(min = 1, message ="is required")
     private String firstName;
-    @Column(name = "last_name", length = 255)
+
+    @Column(name = "customer_last_name", length = 255)
+    @NotNull(message = "is required")
+    @Size(min = 1, message ="is required")
     private String lastName;
 
     @Column(name = "address", length = 255)
+    @NotNull(message = "is required")
+    @Size(min = 1, message ="is required")
     private String address;
 
     @Column(name = "postal_code", length = 255)
+    @NotNull(message = "is required")
+    @Size(min = 5, message ="valid postal code has 5 digits")
     private String postalCode;
 
     @Column(name = "phone", length = 255)
+    @NotNull(message = "is required")
+    @Size(min = 10, message ="a valid phone number has 10 digits")
     private String phone;
 
     @Column(name = "create_date")
