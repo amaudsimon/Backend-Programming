@@ -2,6 +2,8 @@ package com.example.travelAgencyD288.Config;
 
 import com.example.travelAgencyD288.Entity.*;
 // import edu.wgu.d288_backend.entities.*;
+import jakarta.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -19,6 +21,12 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
  */
 @Configuration
 public class RestDataConfig implements RepositoryRestConfigurer {
+    private EntityManager entityManager;
+
+    @Autowired
+    public RestDataConfig(EntityManager entityManager){
+        this.entityManager = entityManager;
+    }
 
     /**
      * This method exposes standard rest api end points for the following classes:

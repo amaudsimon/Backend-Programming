@@ -3,12 +3,17 @@ package com.example.travelAgencyD288.Entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name="customers")
+@Data
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,34 +21,31 @@ public class Customer {
     private Long id;
 
     @Column(name="customer_first_name", length = 255)
-    @NotNull(message = "is required")
-    @Size(min = 1, message ="is required")
+    @NotNull
     private String firstName;
 
     @Column(name = "customer_last_name", length = 255)
-    @NotNull(message = "is required")
-    @Size(min = 1, message ="is required")
+    @NotNull
     private String lastName;
 
     @Column(name = "address", length = 255)
-    @NotNull(message = "is required")
-    @Size(min = 1, message ="is required")
+    @NotNull
     private String address;
 
     @Column(name = "postal_code", length = 255)
-    @NotNull(message = "is required")
-    @Size(min = 5, message ="valid postal code has 5 digits")
-    private String postalCode;
+    @NotNull
+    private String postal_code;
 
     @Column(name = "phone", length = 255)
-    @NotNull(message = "is required")
-    @Size(min = 10, message ="a valid phone number has 10 digits")
+    @NotNull
     private String phone;
 
     @Column(name = "create_date")
+    @CreationTimestamp
     private Date createDate;
 
     @Column(name = "last_update")
+    @UpdateTimestamp
     private Date lastUpdate;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -51,21 +53,21 @@ public class Customer {
     private Division division;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<Cart> carts;
+    private Set<Cart> carts = new HashSet<>();
+
 
     public Customer() {
     }
 
-    public Customer(String firstName, String lastName, String address, String postalCode, String phone, Date createDate, Date lastUpdate, Division division, Set<Cart> carts) {
+    public Customer( String firstName, String lastName, String address, String postal_code, String phone, Date createDate, Date lastUpdate, Division division) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
-        this.postalCode = postalCode;
+        this.postal_code = postal_code;
         this.phone = phone;
         this.createDate = createDate;
         this.lastUpdate = lastUpdate;
         this.division = division;
-        this.carts = carts;
     }
 
     public Long getId() {
@@ -100,12 +102,12 @@ public class Customer {
         this.address = address;
     }
 
-    public String getPostalCode() {
-        return postalCode;
+    public String getPostal_code() {
+        return postal_code;
     }
 
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+    public void setPostal_code(String postal_code) {
+        this.postal_code = postal_code;
     }
 
     public String getPhone() {
@@ -146,21 +148,5 @@ public class Customer {
 
     public void setCarts(Set<Cart> carts) {
         this.carts = carts;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", phone='" + phone + '\'' +
-                ", createDate=" + createDate +
-                ", lastUpdate=" + lastUpdate +
-                ", division=" + division +
-                ", carts=" + carts +
-                '}';
     }
 }

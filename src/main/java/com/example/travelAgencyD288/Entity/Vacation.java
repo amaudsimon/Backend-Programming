@@ -1,6 +1,7 @@
 package com.example.travelAgencyD288.Entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 
 import java.math.BigDecimal;
@@ -11,7 +12,6 @@ import java.util.Set;
 @Table(name="vacations")
 public class Vacation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="vacation_id")
     private Long id;
     @Column(name="vacation_title", length = 255)
@@ -29,7 +29,8 @@ public class Vacation {
 
     }
 
-    public Vacation(String vacation_title, String description, BigDecimal travel_price, String image_URL, Set<Excursion> excursions) {
+    public Vacation(Long id, String vacation_title, String description, BigDecimal travel_price, String image_URL, Set<Excursion> excursions) {
+        this.id = id;
         this.vacation_title = vacation_title;
         this.description = description;
         this.travel_price = travel_price;
@@ -37,12 +38,12 @@ public class Vacation {
         this.excursions = excursions;
     }
 
-    public Vacation(String firstName, String lastName, String address, String postalCode, String phone, Date createDate, Date lastUpdate, Division division, Set<Cart> carts, String vacation_title, String description, BigDecimal travel_price, String image_URL, Set<Excursion> excursions) {
-        this.vacation_title = vacation_title;
-        this.description = description;
-        this.travel_price = travel_price;
-        this.image_URL = image_URL;
-        this.excursions = excursions;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getVacation_title() {

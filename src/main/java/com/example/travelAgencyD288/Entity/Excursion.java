@@ -1,6 +1,9 @@
 package com.example.travelAgencyD288.Entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Collection;
@@ -12,7 +15,6 @@ import java.util.Set;
 public class Excursion{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="excursion_id")
     private Long id;
 
@@ -26,9 +28,11 @@ public class Excursion{
     private String image_URL;
 
     @Column(name = "create_date")
+    @CreationTimestamp
     private Date createDate;
 
     @Column(name = "last_update")
+    @UpdateTimestamp
     private Date lastUpdate;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -48,6 +52,30 @@ public class Excursion{
         this.createDate = createDate;
         this.lastUpdate = lastUpdate;
         this.vacation = vacation;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(Date lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
     public String getExcursion_title() {
