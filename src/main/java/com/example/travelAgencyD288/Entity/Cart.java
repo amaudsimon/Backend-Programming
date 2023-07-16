@@ -21,16 +21,13 @@ public class Cart {
     private Long id;
 
     @Column(name = "package_price")
-    @NotNull
     private BigDecimal package_price;
 
     @Column(name = "party_size")
-    @NotNull
     private Integer party_size;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    @NotNull
     private StatusType status;
 
     @Column(name = "order_tracking_number", length = 255)

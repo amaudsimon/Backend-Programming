@@ -21,23 +21,18 @@ public class Customer {
     private Long id;
 
     @Column(name="customer_first_name", length = 255)
-    @NotNull
     private String firstName;
 
     @Column(name = "customer_last_name", length = 255)
-    @NotNull
     private String lastName;
 
     @Column(name = "address", length = 255)
-    @NotNull
     private String address;
 
     @Column(name = "postal_code", length = 255)
-    @NotNull
     private String postal_code;
 
     @Column(name = "phone", length = 255)
-    @NotNull
     private String phone;
 
     @Column(name = "create_date")
