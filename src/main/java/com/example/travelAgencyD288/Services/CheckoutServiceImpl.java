@@ -53,7 +53,6 @@ public class CheckoutServiceImpl<Vaction> implements CheckoutService{
 
 
         Cart cart = purchase.getCart();
-        System.out.println("Cart ID before saving: " + cart.getId());
 
         Cart cart1 = new Cart(
                 cart.getPackage_price(),
@@ -64,12 +63,12 @@ public class CheckoutServiceImpl<Vaction> implements CheckoutService{
                 cart.getLastUpdate(),
                 cart.getCustomer()
         );
-        System.out.println(cart1);
         cart1.setCustomer(customer1);
 
+        String orderTrackingNumber = generateOrderTrackingNumber();
+        cart1.setOrderTrackingNumber(orderTrackingNumber);
         cartRepository.save(cart1);
-
-        System.out.println("Cart ID after saving: " + cart1.getId());
+        System.out.println(cart1);
 
 
 
@@ -97,10 +96,13 @@ public class CheckoutServiceImpl<Vaction> implements CheckoutService{
 
 
         // Generate tracking number
-        String orderTrackingNumber = generateOrderTrackingNumber();
+
+
+
 
         // Return a response
         return new PurchaseResponse(orderTrackingNumber);
+
     }
 
 
