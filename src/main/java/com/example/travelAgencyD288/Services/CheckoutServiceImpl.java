@@ -37,19 +37,23 @@ public class CheckoutServiceImpl<Vaction> implements CheckoutService{
 
 
         Customer customer = purchase.getCustomer();
-        Customer customer1 = new Customer(
-                customer.getFirstName(),
-                customer.getLastName(),
-                customer.getAddress(),
-                customer.getPostal_code(),
-                customer.getPhone(),
-                null,
-                null,
-                null
-        );
+        Customer customer1 = customerRepository.findById(customer.getId())
+                .orElseGet(() -> {
+                    // Customer does not exist, create a new customer
+                    Customer newCustomer = new Customer(
+                            customer.getFirstName(),
+                            customer.getLastName(),
+                            customer.getAddress(),
+                            customer.getPostal_code(),
+                            customer.getPhone(),
+                            null,
+                            null,
+                            null
+                    );
+                    customerRepository.save(newCustomer);
+                    return newCustomer;
+                });
         System.out.println(customer1);
-
-        customerRepository.save(customer1);
 
 
         Cart cart = purchase.getCart();
