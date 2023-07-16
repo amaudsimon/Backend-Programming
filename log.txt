@@ -1,0 +1,129 @@
+commit e26d001170658be0844f326433014331022c75e3
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sun Jul 16 13:31:17 2023 -0500
+
+     Add five sample customers to the application programmatically.
+
+commit 6130de791c27f3018b33515405d1fc65a49b40d8
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sun Jul 16 12:34:08 2023 -0500
+
+    Updated CheckoutServiceImpl
+
+commit 4450c019cbb7ea523e097a378be3d8d8b8177be4
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sun Jul 16 12:16:08 2023 -0500
+
+    H.  Write code for the controllers package that includes a REST controller checkout controller class with a post mapping to place orders.
+
+commit 2bfd3bae20b4f577067ce1b07bb08ec5cb38de57
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sun Jul 16 12:15:40 2023 -0500
+
+    G.  Write code to include validation to enforce the inputs needed by the Angular front-end.
+
+commit 5f646463613bcca07df89404a8d7eb71f828527e
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sun Jul 16 12:14:17 2023 -0500
+
+    Small changes to code
+
+commit 28d0463113411f423f582bec0b3f2580a2b8069a
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sun Jul 16 12:11:16 2023 -0500
+
+    F.  Write code for the services package that includes each of the following:
+    
+    •   a purchase data class with a customer cart and a set of cart items
+    
+    •   a purchase response data class that contains an order tracking number
+    
+    •   a checkout service interface
+    
+    •   a checkout service implementation class
+
+commit f5d26b87e00f0c993a4d7c8c7d53657c1b6ed977
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sun Jul 16 12:10:18 2023 -0500
+
+    Small changes made to code
+
+commit 7402f61f28ce019ac205be3656cbfbd2b2fa5a48
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Wed Jul 12 14:46:26 2023 -0500
+
+    Small changes made to code
+
+commit fdc430d1cae31c56ada119f1d7c6a9b712d0e502
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Wed Jul 12 14:45:25 2023 -0500
+
+    Added validation dependency abd code to include validation to enforce the inputs needed by the Angular front-end.
+
+commit 077e9d746135c93c6d3752da8d1069a99658c634
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Tue Jul 11 14:12:31 2023 -0500
+
+    Write code for the services package that includes each of the following:
+    
+    •   a purchase data class with a customer cart and a set of cart items
+    
+    •   a purchase response data class that contains an order tracking number
+    
+    •   a checkout service interface
+    
+    •   a checkout service implementation class
+
+commit 49ede955f1b1e5bb0c8789739a1f2cf1d57037e1
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Tue Jul 11 14:11:56 2023 -0500
+
+     Code for the dao package that includes repository interfaces for the entities that extend JpaRepository, and add cross-origin support.
+
+commit 43ba801f98c861292dda3e922e20f4539b457404
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Tue Jul 11 14:10:55 2023 -0500
+
+     Updated entity packages that includes entity classes and the enum designed to match the UML diagram.
+
+commit c4f9908b6b9f267aa3b273179b2c222c15b7ee39
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sat Jul 8 21:55:53 2023 -0500
+
+     Updated entity packages that includes entity classes and the enum designed to match the UML diagram.
+
+commit 24b507f0915fb051065be26eea3a159a40c40d7f
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sat Jul 8 16:40:56 2023 -0500
+
+     Created entity packages that includes entity classes and the enum designed to match the UML diagram.
+
+commit d6278ec7f4c265f06323442f28512646a4082021
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sat Jul 8 12:49:58 2023 -0500
+
+    Created Controller, DAO, Entity, and Service package with empty files
+
+commit 2bb4f2f87794bb88969ffe94d250b2aaf89092be
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sat Jul 8 12:46:14 2023 -0500
+
+    Created Controller, DAO, Entity, and Service package
+
+commit eda974373cd0dc288557386208173c3b31a9308c
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sat Jul 8 12:35:26 2023 -0500
+
+    Update application properities, add Controller, DAO, Services, Entity, Config repositories and RestDataConfig file.
+
+commit 5634912507d5a32ac3f26d318d77e138b7383ac4
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Sat Jul 8 12:35:26 2023 -0500
+
+    Update application properities and RestDataConfig files
+
+commit 8aa8abdc905efb339d1a6d7c15158ddfd5575058
+Author: Amaud Simon <asimo29@wgu.edu>
+Date:   Fri Jul 7 08:04:33 2023 -0500
+
+    Create New Java project and connect to git lab repository
